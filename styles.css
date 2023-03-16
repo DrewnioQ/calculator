@@ -1,0 +1,155 @@
+:root {
+  --site-bg: #1a1a1a;
+  --calc-background: #000000;
+  --calc-disp-bg: #323232;
+  --calc-btn-bg: #1a1a1a;
+  --calc-btn-op-bg: #323232;
+  --calc-btn-eq-bg: #4376c5;
+  --calc-btn-text: #fefefe;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+button {
+  border: none;
+  outline-color: transparent;
+  cursor: pointer;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100dvh;
+
+  background-color: var(--site-bg);
+}
+
+/* HEADER */
+/* header {
+  margin: 1.5rem 0 3rem;
+}
+
+.header-text {
+  text-align: center;
+  font-size: clamp(2.5rem, 10dvw, 4rem);
+  color: var(--calc-btn-text);
+} */
+
+/* MAIN */
+main {
+  flex: 1;
+  margin: 0 auto;
+  margin-top: 7.5%;
+}
+
+/* CALCULATOR */
+.calculator-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  padding: 2rem;
+  border-radius: 1rem;
+
+  background-color: var(--calc-background);
+}
+
+.display {
+  height: 100px;
+  width: auto;
+  padding: 0.5rem 0.5rem 0.5rem;
+
+  background-color: var(--calc-disp-bg);
+  text-align: right;
+  color: var(--calc-btn-text);
+}
+
+.buttons-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.button {
+  --calc-btn-size: 75px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  padding: 1rem;
+
+  height: var(--calc-btn-size);
+  width: var(--calc-btn-size);
+
+  color: var(--calc-btn-text);
+  font-size: clamp(1rem, 6dvw, 1.75rem);
+
+  background-color: var(--calc-btn-bg);
+}
+
+.button--operator {
+  background-color: var(--calc-btn-op-bg);
+}
+
+.operator--equals {
+  background-color: var(--calc-btn-eq-bg);
+}
+
+.operator--mul > p {
+  transform: translateY(7px);
+}
+
+.backspace-icon {
+  filter: invert(1);
+
+  height: auto;
+  width: clamp(1.5rem, 6dvw, 2rem);
+
+  transform: translateX(-2.5px);
+}
+
+/* FOOTER */
+.footer {
+  width: 100%;
+  padding: 1rem 1rem;
+  margin-top: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+}
+
+.footer-text {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  text-align: center;
+  color: var(--calc-btn-text);
+}
+
+.github-link {
+  filter: invert(1);
+  height: auto;
+  width: clamp(1.25rem, 4vw, 1.5rem);
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.github-link:hover {
+  transform: scale(1.2);
+}
