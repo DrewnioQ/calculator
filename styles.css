@@ -1,11 +1,14 @@
 :root {
-  --site-bg: #1a1a1a;
+  --site-bg: #17181c;
   --calc-background: #000000;
-  --calc-disp-bg: #323232;
-  --calc-btn-bg: #1a1a1a;
-  --calc-btn-op-bg: #323232;
-  --calc-btn-eq-bg: #4376c5;
-  --calc-btn-text: #fefefe;
+  --calc-disp-bg: hsl(225, 11%, 5%);
+  --calc-btn-bg: #101114;
+  --calc-btn-op-bg: #14213d;
+  --calc-btn-eq-bg: #fca311;
+  --calc-btn-text: #e5e5e5;
+  color: #71788e;
+
+  --calc-border-rad: 2rem;
 }
 
 *,
@@ -50,29 +53,36 @@ button {
 main {
   flex: 1;
   margin: 0 auto;
-  margin-top: 7.5%;
+  margin-top: 5rem;
 }
 
 /* CALCULATOR */
 .calculator-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-
-  padding: 2rem;
-  border-radius: 1rem;
+  border-radius: var(--calc-border-rad);
+  overflow: hidden;
 
   background-color: var(--calc-background);
+
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
+  box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
 }
 
 .display {
-  height: 100px;
+  height: 200px;
   width: auto;
-  padding: 0.5rem 0.5rem 0.5rem;
+  padding: 0.5rem 2rem 0.5rem;
 
   background-color: var(--calc-disp-bg);
+  font-size: 3rem;
   text-align: right;
   color: var(--calc-btn-text);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  /* border-bottom-right-radius: 1rem; */
 }
 
 .buttons-container {
@@ -80,6 +90,8 @@ main {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   gap: 1rem;
+
+  padding: 2rem;
 }
 
 .button {
@@ -99,6 +111,14 @@ main {
   font-size: clamp(1rem, 6dvw, 1.75rem);
 
   background-color: var(--calc-btn-bg);
+
+  transition: transform 0.2s;
+}
+.button:hover {
+  transform: scale(1.075);
+}
+.button:active {
+  transform: scale(0.925);
 }
 
 .button--operator {
@@ -107,6 +127,7 @@ main {
 
 .operator--equals {
   background-color: var(--calc-btn-eq-bg);
+  color: #000000;
 }
 
 .operator--mul > p {
@@ -152,4 +173,33 @@ main {
 
 .github-link:hover {
   transform: scale(1.2);
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 465px) {
+  main {
+    margin: 0;
+    display: flex;
+  }
+
+  .calculator-container {
+    border-radius: 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+  }
+
+  .display {
+    flex: 1;
+  }
+
+  .button-container {
+  }
+
+  .footer {
+    background-color: var(--calc-background);
+    margin-top: 0;
+  }
 }
