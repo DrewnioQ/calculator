@@ -13,17 +13,20 @@
       <main>
         <section class="calculator-container">
           <div class="display">
-            <p class="display__parsed-text">1 + 13 * 2 =</p>
-            <h3 class="display__main-text">27</h3>
+            <p class="display__parsed-text" id="parsedEq"></p>
+            <h3 class="display__main-text" id="displayEq">0</h3>
           </div>
           <div class="buttons-container">
-            <button class="button button--operator">
-              <p>C</p>
+            <button class="button button--operator" id="allClearBtn">
+              <p>AC</p>
             </button>
             <button class="button button--operator">
               <p>%</p>
             </button>
-            <button class="button button--operator button--backspace">
+            <button
+              class="button button--operator button--backspace"
+              id="backspaceBtn"
+            >
               <img
                 class="backspace-icon"
                 src="./icons/backspace-icon.svg"
@@ -33,37 +36,37 @@
             <button class="button button--operator">
               <p>/</p>
             </button>
-            <button class="button">
+            <button class="button button--number">
               <p>7</p>
             </button>
-            <button class="button">
+            <button class="button button--number">
               <p>8</p>
             </button>
-            <button class="button">
+            <button class="button button--number">
               <p>9</p>
             </button>
             <button class="button button--operator operator--mul">
               <p>*</p>
             </button>
-            <button class="button">
+            <button class="button button--number">
               <p>4</p>
             </button>
-            <button class="button">
+            <button class="button button--number">
               <p>5</p>
             </button>
-            <button class="button">
+            <button class="button button--number">
               <p>6</p>
             </button>
             <button class="button button--operator">
               <p>-</p>
             </button>
-            <button class="button">
+            <button class="button button--number">
               <p>1</p>
             </button>
-            <button class="button">
+            <button class="button button--number">
               <p>2</p>
             </button>
-            <button class="button">
+            <button class="button button--number">
               <p>3</p>
             </button>
             <button class="button button--operator">
@@ -78,7 +81,7 @@
             <button class="button">
               <p>.</p>
             </button>
-            <button class="button operator--equals">
+            <button class="button operator--equals" id="equalsBtn">
               <p>=</p>
             </button>
           </div>
