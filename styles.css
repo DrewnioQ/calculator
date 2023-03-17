@@ -35,7 +35,7 @@ button {
   outline-color: transparent;
   cursor: pointer;
 }
-button:focus {
+button:focus-visible {
   outline-offset: 0.5rem;
   outline: 0.2rem solid white;
 }
