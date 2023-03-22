@@ -51,7 +51,19 @@ function addButtonEventListener(button) {
 
 function addSymbolToEquation(symbol) {
   symbol = symbol.trim();
-  symbol = addSpaceIfOperator(symbol);
+  const lastSymbol = equationArr.slice(-1)[0];
+
+  const isOperator = operators.some((operator) => operator.symbol === symbol);
+  if (isOperator) {
+    // Check if last symbol was an operator and change it to new operator if true
+    const isLastOperator = operators.some((operator) => {
+      if (lastSymbol) return operator.symbol === lastSymbol.trim();
+    });
+    if (isLastOperator) equationArr.pop();
+
+    symbol = ` ${symbol} `;
+  }
+
   equationArr.push(symbol);
   updateDisplay();
 }
@@ -81,7 +93,7 @@ function updateDisplay() {
   display.textContent = equationArr.join("");
 }
 
-function addSpaceIfOperator(symbol) {
+function isOperator(symbol) {
   const isOperator = operators.some((operator) => operator.symbol === symbol);
   if (isOperator) return (symbol = ` ${symbol} `);
   return symbol;
