@@ -1,3 +1,5 @@
+import { evaluate } from "mathjs";
+
 let equationArr = [];
 
 const buttons = document.querySelectorAll(".button");
@@ -80,7 +82,7 @@ function deleteLastSymbol() {
 function evaluate() {
   parsedEq.textContent = `${display.textContent} =`;
 
-  const eqResult = equationArr.map((symbol) => {});
+  const equationString = equationArr.join("");
 }
 
 function clearDisplay() {
@@ -91,10 +93,4 @@ function clearDisplay() {
 
 function updateDisplay() {
   display.textContent = equationArr.join("");
-}
-
-function isOperator(symbol) {
-  const isOperator = operators.some((operator) => operator.symbol === symbol);
-  if (isOperator) return (symbol = ` ${symbol} `);
-  return symbol;
 }
