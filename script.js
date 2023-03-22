@@ -1,5 +1,3 @@
-import { evaluate } from "mathjs";
-
 let equationArr = [];
 
 const buttons = document.querySelectorAll(".button");
@@ -80,9 +78,21 @@ function deleteLastSymbol() {
 }
 
 function evaluate() {
-  parsedEq.textContent = `${display.textContent} =`;
-
+  let resultEq;
   const equationString = equationArr.join("");
+
+  parsedEq.textContent = `${equationArr.join("")} =`;
+
+  try {
+    resultEq = math.evaluate(equationString);
+  } catch (error) {
+    display.textContent = "ERROR";
+    return;
+  }
+
+  equationArr.length = 0;
+
+  display.textContent = math.round(resultEq, 8);
 }
 
 function clearDisplay() {
